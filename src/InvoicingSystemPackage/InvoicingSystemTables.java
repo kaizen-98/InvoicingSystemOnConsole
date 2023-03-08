@@ -25,9 +25,34 @@ public class InvoicingSystemTables {
 		
 		
 		
+			String tableCreationHolder = "CREATE TABLE shop_settings ("
+	                + "id INT PRIMARY KEY,"
+	                + "shop_name VARCHAR(255)"
+	                + ");"
+	                +
+	                "CREATE TABLE shop_items ("
+	                + "id INT PRIMARY KEY,"
+	                + "name VARCHAR(255),"
+	                + "description VARCHAR(255),"
+	                + "price int"
+	                + ");"
+	                +
+	                "CREATE TABLE invoices ("
+	                + "id INT PRIMARY KEY,"
+	                + "invoice_date VARCHAR(255),"
+	                + "customer_name VARCHAR(255)" 
+	                + ");"
+	                +
+	                "CREATE TABLE invoice_items ("
+	                + "invoice_id INT,"
+	                + "item_id INT,"
+	                + "quantity INT,"
+	                + "price INT,"
+	                + "FOREIGN KEY (invoice_id) REFERENCES invoices(id),"
+	                + "FOREIGN KEY (item_id) REFERENCES shop_items(id)"
+	                + ")";
 		
-		
-		
+			st.execute(tableCreationHolder);
 		
 		
 		

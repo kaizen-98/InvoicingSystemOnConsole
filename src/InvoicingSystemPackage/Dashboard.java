@@ -23,7 +23,7 @@ public class Dashboard {
 			System.out.println("    5- Go Back");
 			System.out.println("3- Create New Invoice");
 			System.out.println(
-					"4- Report: All Invoices ( Invoice No, Invoice Date, Customer Name, No of items, Total, Balance)");
+					"4- Report: All Invoices ( Invoice No, Invoice Date, Customer Name, No of items,)");
 			System.out
 					.println("5- Search (1) Invoice (Search by Invoice No and Report All Invoice details with items)");
 			System.out.println("6- Exit");
