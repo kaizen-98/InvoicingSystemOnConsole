@@ -6,4 +6,5 @@
  *
  */
 module InvoicingSystemOnConsole {
+	requires java.sql;
 }
