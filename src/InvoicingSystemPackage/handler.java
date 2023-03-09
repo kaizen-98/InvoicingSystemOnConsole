@@ -161,4 +161,78 @@ System.out.println("insertion failed");
 			System.err.println(ex);
 		}
 	}
+	
+	public void deletItem() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+			System.out.println("Enter The item Id");
+			int id = input.nextInt();
+			String deletItem = "\r\n"
+					+ "DELETE FROM [dbo].[shop_items]\r\n"
+					+ "      WHERE id="+id;
+			Integer m = st.executeUpdate(deletItem);
+            if (m >= 1) {
+            	System.out.println("Deleted successfully !! ");
+} else {
+System.out.println("Deleted failed");
+			
+}	
+			
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
+	public void updateItem() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+			System.out.println("Enter The item Id");
+			int id = input.nextInt();
+			System.out.println("Enter The New price");
+			int newprice = input.nextInt();
+			String updateItem ="UPDATE [dbo].[shop_items]\r\n" + " SET[price] = " + newprice + " WHERE Id = "
+					+ id;
+			Integer m = st.executeUpdate(updateItem);
+            if (m >= 1) {
+            	System.out.println("Deleted successfully !! ");
+} else {
+System.out.println("Deleted failed");
+			
+}	
+			
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
 }
