@@ -27,7 +27,7 @@ public class InvoicingSystemTables {
 		
 			String tableCreationHolder = "CREATE TABLE shop_settings ("
 	                + "id INT PRIMARY KEY,"
-	                + "shop_name VARCHAR(255)"
+	                + "shop_name text"
 	                + ");"
 	                +
 	                "CREATE TABLE shop_items ("
@@ -53,21 +53,6 @@ public class InvoicingSystemTables {
 	                + ")";
 		
 			st.execute(tableCreationHolder);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
