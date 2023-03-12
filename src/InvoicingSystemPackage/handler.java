@@ -252,6 +252,7 @@ System.out.println("Update failed");
 	String Allitem = "select * from shop_items";
 	ResultSet resultSet = st.executeQuery(Allitem);
     while (resultSet.next()) {
+    	System.out.println("Print all from shop");
     	System.out.println(resultSet.getString("id"));
     	System.out.println(resultSet.getString("name"));
     	System.out.println(resultSet.getString("description"));
@@ -283,6 +284,7 @@ System.out.println("Update failed");
 	String Allitem = "select * from shop_settings";
 	ResultSet resultSet = st.executeQuery(Allitem);
     while (resultSet.next()) {
+    	System.out.println("Print all from shop");
     	System.out.println(resultSet.getString("id"));
     	System.out.println(resultSet.getString("shop_name"));
     
