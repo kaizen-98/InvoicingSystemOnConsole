@@ -141,6 +141,7 @@ public class Dashboard {
 				System.out.print("Are you sure you want to exit? (y/n): ");
 				String confirmExit = input.next();
 				if (confirmExit.equalsIgnoreCase("y")) {
+					System.out.print("Thanks for using our System!");
 					exit = true;
 				}
 				break;
