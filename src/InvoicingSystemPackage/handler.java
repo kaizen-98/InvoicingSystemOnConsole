@@ -298,4 +298,61 @@ System.out.println("Update failed");
 			System.err.println(ex);
 		}
 	}
+	public void printinvoices() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+	String Allitem = "select * from invoices";
+	ResultSet resultSet = st.executeQuery(Allitem);
+    while (resultSet.next()) {
+    	System.out.println("Print all from invoices");
+    	System.out.println(resultSet.getString("id"));
+    	System.out.println(resultSet.getString("invoice_date"));
+    	System.out.println(resultSet.getString("customer_name"));
+        
+    
+}
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
+	public void seachinvoices() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
 }
