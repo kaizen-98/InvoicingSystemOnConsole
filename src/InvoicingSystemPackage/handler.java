@@ -220,12 +220,73 @@ System.out.println("Deleted failed");
 					+ id;
 			Integer m = st.executeUpdate(updateItem);
             if (m >= 1) {
-            	System.out.println("Deleted successfully !! ");
+            	System.out.println("Update successfully !! ");
 } else {
-System.out.println("Deleted failed");
+System.out.println("Update failed");
 			
 }	
 			
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
+	public void printItem() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+	String Allitem = "select * from shop_items";
+	ResultSet resultSet = st.executeQuery(Allitem);
+    while (resultSet.next()) {
+    	System.out.println(resultSet.getString("id"));
+    	System.out.println(resultSet.getString("name"));
+    	System.out.println(resultSet.getString("description"));
+    	System.out.println(resultSet.getString("price"));
+}
+			
+			
+			// -----------------------------------------------------------//
+
+			con.close();
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
+	}
+	public void printshop() {
+		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
+				+ "trustServerCertificate=true";
+		String user = "sa";
+		String pass = "root";
+
+		Connection con = null;
+		try {
+			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+			DriverManager.registerDriver(driver);
+			con = DriverManager.getConnection(url, user, pass);
+			Statement st = con.createStatement();
+			// -------------------------------------------------------------//
+			
+	String Allitem = "select * from shop_settings";
+	ResultSet resultSet = st.executeQuery(Allitem);
+    while (resultSet.next()) {
+    	System.out.println(resultSet.getString("id"));
+    	System.out.println(resultSet.getString("shop_name"));
+    
+}
 			
 			
 			// -----------------------------------------------------------//

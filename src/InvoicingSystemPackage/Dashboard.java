@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Dashboard {
 
 	public static void main(String[] args) {
+		handler handler = new handler();
 		String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=InvoicingSystemDB;" + "encrypt=true;"
 				+ "trustServerCertificate=true";
 		String user = "sa";
@@ -74,8 +75,7 @@ public class Dashboard {
 					break;
 				case 2:
 					// Set shop name
-					System.out.print("Enter the shop name: ");
-				
+					handler.addShop();
 					System.out.println("Shop name set successfully.");
 					break;
 				case 3:
@@ -99,22 +99,22 @@ public class Dashboard {
 				switch (manageItemsChoice) {
 				case 1:
 					// Add items
-				
+					handler.addItems();
 					System.out.println("Items added successfully.");
 					break;
 				case 2:
 					// Delete items
-					
+					handler.deletItem();
 					System.out.println("Items deleted successfully.");
 					break;
 				case 3:
 					// Change item price
-				
+					handler.updateItem();
 					System.out.println("Item price changed successfully.");
 					break;
 				case 4:
 					// Report all items
-					
+					handler.printItem();
 					break;
 				case 5:
 					// Go back
@@ -125,6 +125,7 @@ public class Dashboard {
 				}
 				break;
 			case 3:
+				handler.addInvoice();
 				System.out.println("Invoice created successfully.");
 				break;
 			case 4:
