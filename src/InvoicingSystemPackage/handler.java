@@ -344,9 +344,18 @@ System.out.println("Update failed");
 			con = DriverManager.getConnection(url, user, pass);
 			Statement st = con.createStatement();
 			// -------------------------------------------------------------//
-			
-
-			
+			System.out.println("Enter The invoices Id you want to seach");
+			int id = input.nextInt();
+			String Allitem = "select * from invoices where id="+id;
+			ResultSet resultSet = st.executeQuery(Allitem);
+		    while (resultSet.next()) {
+		    	System.out.println("Print all from invoices");
+		    	System.out.println(resultSet.getString("id"));
+		    	System.out.println(resultSet.getString("invoice_date"));
+		    	System.out.println(resultSet.getString("customer_name"));
+		        
+		    
+		}
 			
 			// -----------------------------------------------------------//
 
