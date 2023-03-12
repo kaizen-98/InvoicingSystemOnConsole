@@ -70,7 +70,7 @@ public class Dashboard {
 				switch (shopSettingsChoice) {
 				case 1:
 					// Load data
-				
+					handler.printshop();
 					System.out.println("Data loaded successfully.");
 					break;
 				case 2:
@@ -130,11 +130,11 @@ public class Dashboard {
 				break;
 			case 4:
 				// Report all invoices
-				
+				handler.printinvoices();
 				break;
 			case 5:
 				// Search invoice
-				
+				handler.seachinvoices();
 				break;
 			case 6:
 				// Exit
